@@ -24,6 +24,28 @@ id | name |
 # - If there is a many to many, we need a third table
 
 # Write your answer here.
+CUSTOMERS:
+has_many reviews
+has_many restaurant through reviews
+has_many owners(?!?) through restaurants
+id | name | birth_year | hometown |
+
+RESTAURANTS:
+belongs_to an owner
+has_many customers through reviews
+id | name | location | owner_id
+
+OWNERS:
+has_many restaurants
+has_many customers through restaurants
+id | name
+
+REVIEWS:
+belongs_to a customer
+belongs_to a restaurant
+belongs_to an owner through restaurant
+id | customer_id | restaurant_id
+
 
 # 2. As a second step, please fill in the stubbed out methods in the respective model.
 # Customer#reviews

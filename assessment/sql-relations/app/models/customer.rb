@@ -13,6 +13,12 @@ class Customer
   attr_reader :id
 
   def reviews
+    sql= <<-SQL
+      SELECT reviews.* FROM reviews
+      INNER JOIN customers ON customer.id = reviews.customer_id
+      WHERE customer_id = ?
+    SQL
+    self.class.db.execute(sql,self.id)
   end
 
   def restaurants

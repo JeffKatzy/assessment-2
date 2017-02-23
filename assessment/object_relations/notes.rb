@@ -10,7 +10,6 @@
   # Customer.all
   # Customer.find_by_name(name)
   # Customer#add_review
-  # Customer#add_restaurant
 
   # Review.all
   # Review#customer
